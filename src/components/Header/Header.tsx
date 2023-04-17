@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { HeaderProps } from "../types/types"
-
+import Button from '@mui/material/Button';
+import { CssTextField } from "../../utils/utils";
 
 export const Header: React.FC <HeaderProps> = React.memo(({ addTodo }) => {
   const [input, setInput] = useState<string>('')
@@ -9,22 +10,28 @@ export const Header: React.FC <HeaderProps> = React.memo(({ addTodo }) => {
     setInput(e.target.value)
   }
 
-  const addBtnHandler = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    if (input) {
-      addTodo(input)
-      setInput('')
+  const addBtnHandler = (e: React.FormEvent<HTMLButtonElement>) => {
+      e.preventDefault()
+      if (input) {
+        addTodo(input)
+        setInput('')
     }
   }
 
   return (
-    <div className="pt-5">
-      <form onSubmit={addBtnHandler} className="d-flex flex-column align-items-center">
-        <div className="mb-3">
-          <input value={input} className="form-control" onChange={changeHandler} placeholder="add todo..." />
+    <header className="header">
+        <h3 className="header__title">todos</h3>
+        <div className="d-flex justify-content-center align-items-center">
+            <CssTextField 
+                id="custom-css-outlined-input" 
+                label="Add todo" 
+                size="small" 
+                variant="outlined"
+                value={input}
+                onChange={changeHandler}
+            />
+            <Button onClick={(e) => addBtnHandler(e)} variant="contained" sx={{marginLeft: 1}}>Add</Button>
         </div>
-        <button type="submit" className="btn btn-primary">Add</button>
-      </form>
-    </div>
+    </header>
   )
-})
+})                     
