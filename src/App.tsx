@@ -11,13 +11,7 @@ const App: React.FC = () => {
   return (
     <div className="container">
         <Header addTodo={addTodo} />
-        <hr className="w-75 mx-auto my-4" />
-        <Main
-            todos={todos}
-            changeStatusCompleted={changeStatusCompleted}
-            deleteTodo={deleteTodo}
-        />
-        <hr className="w-75 mx-auto my-4" />
+        <Main todos={todos} changeStatusCompleted={changeStatusCompleted} deleteTodo={deleteTodo} />
         <Footer clearListTodos={clearListTodos} />
     </div>
   )

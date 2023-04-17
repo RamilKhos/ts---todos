@@ -1,27 +1,46 @@
 import { MainProps } from "../types/types"
+import { Checkbox, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider, Button, FormGroup } from "@mui/material"
+import CircularProgress from '@mui/material/CircularProgress';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-export const Main: React.FC <MainProps> = ({ todos, changeStatusCompleted, deleteTodo }) => {
 
+export const Main: React.FC <MainProps> = ({ todos, deleteTodo }) => {
     return (
-    <div className="d-flex justify-content-center">
-      <ul className="list-group w-75">
-        {todos.length > 0
-          ? todos.map((todo, i) => (
-            <li
-              key={todo.id}
-              className={`list-group-item d-flex align-items-center justify-content-between 
-              ${todo.completed ? 'text-decoration-line-through' : ''}`}
-            >
-              <span>{`${i + 1}. ${todo.todo}`}</span>
-              <div>
-                <button type="button" className="btn btn-success btn-sm ms-2" onClick={() => changeStatusCompleted(todo.id)}>Done</button>
-                <button type="button" className="btn btn-danger btn-sm ms-2" onClick={() => deleteTodo(todo.id)}>Delete</button>
-              </div>
-            </li>
-          ))
-          : <span>No tasks...</span>}
-      </ul>
-    </div>
+    <main className="main">
+        <div className="main__content">
+            <List sx={{ width: '100%', color: '#FCFAF1' }}>
+                <FormGroup>
+                {todos.length > 0 ?
+                    todos.map((todo) => {
+                        return (
+                            <>
+                            <ListItem key={todo.id} disablePadding >
+                                <Checkbox />
+                                <ListItemText 
+                                primary={todo.todo}
+                                sx={{
+                                    width: '100%',
+                                    display: 'inline-block',
+                                    wordWrap: 'break-word',
+                                }}
+                                 />
+                                <Button onClick={() => deleteTodo(todo.id)}>
+                                    <DeleteIcon sx={{ color: '#c18692' }} />
+                                </Button>
+                            </ListItem>
+                            <Divider sx={{
+                                opacity: .8,
+                                marginBottom: 1.5
+                            }} />
+                            </>
+                        )
+                    })
+                    : <CircularProgress />
+                }
+                </FormGroup>
+            </List>
+        </div>
+    </main>
     )
 }
   
