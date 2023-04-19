@@ -1,9 +1,9 @@
 import React from 'react'
 import { FooterProps } from '../types/types'
-import Button from '@mui/material/Button';
+import { CssButton } from '../../utils/utils';
 
 export const Footer: React.FC<FooterProps> = React.memo(({ clearListTodos }) => (
   <footer className="footer">
-    <Button onClick={clearListTodos} variant="contained">Clear list</Button>
+    <CssButton onClick={clearListTodos} variant="contained">Clear list</CssButton>
   </footer>
 ))

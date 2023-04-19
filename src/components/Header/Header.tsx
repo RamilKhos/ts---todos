@@ -30,7 +30,7 @@ export const Header: React.FC <HeaderProps> = React.memo(({ addTodo }) => {
                 value={input}
                 onChange={changeHandler}
             />
-            <Button onClick={(e) => addBtnHandler(e)} variant="contained" sx={{marginLeft: 1}}>Add</Button>
+            <Button onClick={(e) => addBtnHandler(e)} variant="contained" sx={{marginLeft: 1, opacity: .8}}>Add</Button>
         </div>
     </header>
   )
