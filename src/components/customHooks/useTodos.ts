@@ -1,18 +1,16 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Todo, TodoResponse, UseTodos } from '../types/types'
 
-const url: string = 'https://dummyjson.com/todos?limit=5&skip=10'
-
-
+const url: string = 'https://dummyjson.com/todos?limit=7&skip=10'
 
 export const useTodos = (): UseTodos => {
   const [todos, setTodos] = useState <Todo[]> ([])
 
   useEffect(() => {
-    fetches()
+    getTodosFromBD()
   }, [url])
 
-  async function fetches () {
+  async function getTodosFromBD () {
     try {
       const resp = await fetch(url)
       if (resp.ok) {

@@ -1,26 +1,38 @@
-import { TextField } from "@mui/material";
+import { TextField, Button } from "@mui/material";
 import styled from "@emotion/styled";
 
 export const CssTextField = styled(TextField)({
+    '& label': {
+        color: '#8A3F1B',
+      },
     '& label.Mui-focused': {
-      color: '#986969',
+      color: '#8A3F1B',
+    },
+    '& .MuiInputBase-input': {
+        color: '#8A3F1B',
     },
     '& .MuiInput-underline:after': {
-      borderBottomColor: '#986969',
+      borderBottomColor: '#8A3F1B',
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: '#986969',
+        borderColor: '#8A3F1B',
       },
       '&.Mui-focused fieldset': {
-        borderColor: '#986969',
+        borderColor: '#8A3F1B',
       },
       '&:hover fieldset': {
-        borderColor: '#986969',
+        borderColor: '#8A3F1B',
       },
     },
-    '& .MuiInputBase-input': {
-        color: '#FCFAF1',
+})
+
+export const CssButton = styled(Button)({
+    '&.MuiButtonBase-root': {
+        backgroundColor: '#F23A29',
     },
+    '&.MuiButtonBase-root:hover': {
+        backgroundColor: 'red',
+      },
 })
 
