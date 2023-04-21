@@ -45,6 +45,10 @@ body {
         #9b868100 -25px 25px;
 }
 
+.main__no-content {
+    color: #8A3F1B;
+}
+
 
 .footer {
     margin: 2rem 0;

@@ -7,10 +7,10 @@ export const useTodos = (): UseTodos => {
   const [todos, setTodos] = useState <Todo[]> ([])
 
   useEffect(() => {
-    fetches()
+    getTodosFromBD()
   }, [url])
 
-  async function fetches () {
+  async function getTodosFromBD () {
     try {
       const resp = await fetch(url)
       if (resp.ok) {

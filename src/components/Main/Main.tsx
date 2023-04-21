@@ -39,7 +39,7 @@ export const Main: React.FC <MainProps> = ({ todos, deleteTodo, changeStatusComp
                         </>
                         )
                         })
-                        : <CircularProgress />
+                        : (<div className="main__no-content">No task...</div>)
                     }
             </List>
         </div>
