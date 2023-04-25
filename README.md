@@ -9,6 +9,12 @@
 ## Screenshots
 ![](/public/screenshots/todos.png)
 
+## Tech Stack
+
+- Typescript
+- React
+- Material-ui
+
 ## Getting Started
 ```
 npm install
