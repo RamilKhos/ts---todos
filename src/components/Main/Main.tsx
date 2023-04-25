@@ -1,6 +1,5 @@
 import { MainProps } from "../types/types"
-import { List, ListItem, ListItemText, Divider, Button, FormGroup } from "@mui/material"
-import CircularProgress from '@mui/material/CircularProgress';
+import { List, ListItem, ListItemText, Divider, Button } from "@mui/material"
 import DeleteIcon from '@mui/icons-material/Delete';
 import CheckCircleOutlineSharpIcon from '@mui/icons-material/CheckCircleOutlineSharp';
 import PanoramaFishEyeSharpIcon from '@mui/icons-material/PanoramaFishEyeSharp';
@@ -11,8 +10,8 @@ export const Main: React.FC <MainProps> = ({ todos, deleteTodo, changeStatusComp
         <div className="main__content">
             <List sx={{ width: '100%', color: '#FCFAF1' }}>
                     {todos.length > 0 ? todos.map((todo) => { return (
-                        <>
-                        <ListItem key={todo.id} disablePadding >
+                        <div key={todo.id} >
+                        <ListItem disablePadding >
                             <Button onClick={() => changeStatusCompleted(todo.id)}>
                                 {todo.completed === true ? <CheckCircleOutlineSharpIcon sx={{
                                     color: '#549D42',
@@ -36,7 +35,7 @@ export const Main: React.FC <MainProps> = ({ todos, deleteTodo, changeStatusComp
                         </ListItem>
 
                         <Divider sx={{ opacity: .8, marginBottom: 1.5 }} />
-                        </>
+                        </div>
                         )
                         })
                         : (<div className="main__no-content">No task...</div>)
